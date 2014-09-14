@@ -55,7 +55,15 @@ object RecursionPatternMatchingExercise {
    * List(1,1,2,3,1,1) -> List(1,1,1,1), List(2), List(3)
    */
   def groupEquals[T](in: List[T]): List[List[T]] = {
-		  error("fix me")
+    in match {
+      case Nil => Nil
+      case (f::r) => 
+        val result = groupEquals(r)
+        if (result.flatten contains f) result.map(ele=> if (ele contains f) f::ele else ele)
+        else List.concat(result, List(List(f))) 
+    }
+    
+
   }
 
   /**
@@ -67,7 +75,8 @@ object RecursionPatternMatchingExercise {
       case Nil => Nil
       case (f::r) => 
         val result = compress(r)
-        if (result contains f) result else List.concat(result, List(f))
+        if (result contains f) result else  f:: result
+          
     }
   }
   
@@ -76,13 +85,16 @@ object RecursionPatternMatchingExercise {
    * List(1,1,2,3,1,1) -> List((4,1),(1,2),(1,3))
    */
   def amountEqualMembers[T](in: List[T]): List[(Int, T)] = {
-    in match {
-      case Nil => List()
-      case (f::r) => 
-        val result = amountEqualMembers(r)
-        error("fix me")
-    }
     
+	def amountEqualMembersInnerRecusive [T](in: List[T]): List[(Int, T)] = { 
+			in match {
+				case Nil => Nil
+				case (f::r) => 
+				  val result =  amountEqualMembersInnerRecusive(r)
+				  if (result.map({case (a, b) => b}) contains f) result.map({case(a, b)=> if (b == f) (a+1, b) else (a, b)})
+				  else List.concat(result,List((1, f)))}
+		  }
+	amountEqualMembersInnerRecusive(in.reverse)
   }
   
   /**
