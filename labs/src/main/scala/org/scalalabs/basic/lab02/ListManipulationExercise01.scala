@@ -83,7 +83,6 @@ object ListManipulationExercise01 {
    *
    * Implement it whatever way suites you best. Hint: it can be done in a neat way using recursion. 
    */
-  def tails[T](l: List[T]): List[List[T]] = {
-    error("fix me")
-  }
+  def tails[T](l: List[T]): List[List[T]] = if (l.isEmpty) List(l) else List.concat(List(l), tails(l.tail))
+  
 }

@@ -33,8 +33,17 @@ object CollectionExercise01 {
    *
    */
   def googleCodeJamGooglerese(lines: String*): Seq[String] = {
-    error("fix me")
+    val input = "ejp mysljylc kd kxveddknmc re jsicpdrysi rbcpc ypc rtcsra dkh wyfrepkym veddknkmkrkcd de kr kd eoya kw aej tysr re ujdr lkgc jv"
+    val output = "our language is impossible to understand there are twenty six factorial possibilities so it is okay if you want to just give up"
+    var letterMap = stringsToMap(input, output)    
+    
+    lines.map(str => str.map(c => letterMap(c)))
   }
+  
+  def stringsToMap(input:String, output:String): Map[Char, Char] = {
+    if (input == "") Map()
+    else stringsToMap(input.tail, output.tail) updated (input.head, output.head)
+  } 
 }
 /*========================================================== */
 
@@ -50,8 +59,19 @@ object CollectionExercise02 {
    * using a functional approach.
    */
   def groupAdultsPerAgeGroup(persons: Seq[Person]): Map[Int, Seq[Person]] = {
-    error("fix me")
+    if (persons.isEmpty) Map()
+    else {
+      var result = groupAdultsPerAgeGroup(persons.tail)
+      val person = persons.head
+      if (person.age < 18)
+        result
+      else if (result contains person.age/10 * 10)
+        result updated (person.age/10 * 10, person +: result(person.age/10 * 10))
+      else
+        result updated (person.age/10 * 10, Seq(person))
+    }
   }
+
 }
 
 /*========================================================== */
@@ -65,7 +85,10 @@ object CollectionExercise03 {
    * checkValuesIncrease(Seq(1,2,2)) == false
    */
   def checkValuesIncrease[T <% Ordered[T]](seq: Seq[T]): Boolean =
-    error("fix me")
+    if (seq.length < 2) true
+    else if (seq(1) > seq.head)
+      checkValuesIncrease(seq.tail)
+    else false
 
 }
 /*========================================================== */
@@ -76,6 +99,7 @@ object CollectionExercise04 {
    * To keep it simple it's ok to use String.split to extract all words of a sentence.
    */
   def calcLengthLongestWord(lines: String*): Int = {
-    error("fix me")
+    val words = lines.map(s => s.split(" ")).flatten
+    (words.map(s => s.length)).max
   }
 }
