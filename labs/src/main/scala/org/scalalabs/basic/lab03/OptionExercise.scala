@@ -2,6 +2,8 @@ package org.scalalabs.basic.lab03
 import scala.util.control._
 import sys._
 
+
+//Modified by Sisi Cheng & Jean Sung
 package object lab03 {
 
   /**
@@ -41,12 +43,16 @@ object OptionExercise02 {
    * to convert a possible numeric String (e.g. Some("12")) to an integer
    */
   def totalPeopleInRooms(rooms: Map[Int, Option[String]]): Int = {
+    
+    //calculated number of people given a room 
     def numPeopleInRoom(room:Option[String]): Int = {
       room match {
         case None => 0
         case s:Option[String] => if (s.get == "locked") 0 else (augmentString)(s.get).toInt
       }
     }
+    
+    // sum up all the people per room, return sum
     var sum = 0
     rooms.values.foreach(room => sum += numPeopleInRoom(room))
     sum

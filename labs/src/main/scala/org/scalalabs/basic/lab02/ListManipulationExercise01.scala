@@ -8,6 +8,8 @@ import sys._
  * An overview of some functional programming techniques can be found here in the O'reilly book:
  * http://programming-scala.labs.oreilly.com/ch08.html#FunctionalDataStructures 
  */
+
+//Modified by Sisi Cheng & Jean Sung
 object ListManipulationExercise01 {
 
   /**

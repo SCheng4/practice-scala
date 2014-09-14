@@ -40,6 +40,7 @@ import scala.language.implicitConversions
  *   of type [[org.scalalabs.basic.lab01.CurrencyConverter]]
  * - Use the implicit CurrencyConverter to do the conversion. 
  */
+//Modified by Sisi Cheng & Jean Sung
 class Euro (var euro:Int, val cents:Int = 0) extends Currency {
 	val inCents:Int = euro*100 + cents;
 	symbol = "EUR"

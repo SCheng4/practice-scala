@@ -3,7 +3,7 @@ package org.scalalabs.basic.lab02
 import scala.collection.mutable.ListBuffer
  import sys._
 
-
+//Modified by Sisi Cheng & Jean Sung
 object ListManipulationExercise02 {
 
   /**

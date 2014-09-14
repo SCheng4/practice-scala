@@ -15,6 +15,7 @@ import sys._
  * corresponding unit test work.
  */
 
+//Modified by Sisi Cheng & Jean Sung
 object PatternMatchingExercise {
 
   /*************************************************************************
@@ -28,6 +29,7 @@ object PatternMatchingExercise {
     	case "Clojure" | "Haskell" => "Functional"
     	case "Scala" => "Hybrid"
     	case "C" => "Procedural"
+    	// default case
     	case _ => "Unknown"
     }
   }
@@ -54,11 +56,11 @@ object PatternMatchingExercise {
    */
   def matchOnInputType(in: Any): String = {
     in match {
-      case x: String => "A string with length " + x.length
-      case y: Int => if (y > 0) "A positive integer" else "Some Scala class"
-      case z: Person => "A person with name: " + z.name
-      case a: Seq[Any] => if (a.length > 10) "Seq with more than 10 elements"
-    	  			   	  else if (a.length > 3) "first: " + a.head + ", second: " + a(1) + ", rest: " + a.tail.tail
+      case string: String => "A string with length " + string.length
+      case number: Int => if (number > 0) "A positive integer" else "Some Scala class"
+      case personObject: Person => "A person with name: " + personObject.name
+      case sampleSequence: Seq[Any] => if (sampleSequence.length > 10) "Seq with more than 10 elements"
+    	  			   	  else if (sampleSequence.length > 3) "first: " + sampleSequence.head + ", second: " + sampleSequence(1) + ", rest: " + sampleSequence.tail.tail
     	  			   	  else "Some Scala class"
       case null => "A null value"
       case _ => "Some Scala class"

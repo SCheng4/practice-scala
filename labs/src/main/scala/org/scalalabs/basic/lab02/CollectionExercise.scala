@@ -5,6 +5,7 @@ package org.scalalabs.basic.lab02
  */
 import sys._
 
+//Modified by Sisi Cheng & Jean Sung
 object CollectionExercise01 {
 
   /**
