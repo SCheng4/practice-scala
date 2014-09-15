@@ -6,6 +6,9 @@ package org.scalalabs.basic.lab01
  * Fix the code so that the unit test 'HelloWorldExerciseTest' passes.
  *
  */
+
+
+//Modified by Sisi Cheng & Jean Sung 
 object HelloWorld {
 
   /**
